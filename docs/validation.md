@@ -16,9 +16,9 @@ Existing prototype scripts, service configuration and credentials were not chang
 - `bench --site zkt-k50-test.local migrate`: passed.
 - Device schema reload after form layout improvements: passed.
 - `bench build --app zkt_k50_biomatrics`: passed.
-- Frappe test runner: 23 integration tests, 21 passed and 2 explicitly skipped.
+- Frappe test runner: 24 integration tests, 22 passed and 2 explicitly skipped.
 - Framework-independent core/agent tests: 28 passed.
-- Total automated suite: **49 passed, 2 skipped**.
+- Total automated suite: **50 passed, 2 skipped**.
 - Ruff lint and formatting checks: passed.
 - Python compilation and JavaScript syntax checks: passed.
 - Real WSGI/HTTP smoke: unauthenticated rejection, scoped heartbeat, durable event
@@ -57,3 +57,20 @@ ERPNext production deployment on SQLite. MariaDB is the production acceptance ta
 
 No production-readiness claim is made until the pending environment/hardware checks
 are completed. The app is version 0.1.0 with the limitations described in deployment.md.
+
+## Subsequent deployment and permission fix
+
+At the user's explicit request, the app was installed on `ss.frappe.my` after a successful
+site database/config backup. The dashboard Page and empty monitoring API were verified.
+The running Python services were reloaded to recognize the new package. No devices,
+employee mappings or checkins were created on that site, and no live synchronization
+was enabled.
+
+A reported navigation failure was traced to an active System Manager account lacking
+DocType permissions despite already being allowed by the app's dashboard/management APIs.
+Version-controlled permissions now consistently admit System Manager for configuration
+and read-only audit access. A regression test confirms configuration access without
+write access to raw logs/runs. These permissions were reloaded only for this app's five
+DocTypes on `ss.frappe.my`; the active account's device read access was verified.
+Dashboard navigation now uses links and includes an Add Device action and setup guidance.
+A hard browser refresh is required to refresh the existing session's boot permissions.

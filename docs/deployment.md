@@ -40,7 +40,7 @@ bench --site your-test-site.local enable-scheduler
 
 No devices are created or enabled on install. Setup creates three roles and lookup
 indexes idempotently. No HRMS source changes or Employee custom fields are used.
-Assign Biometric Administrator to the setup operator. Managers configure devices,
+System Manager can configure this app. Other setup operators can be assigned Biometric Administrator. Managers configure devices,
 mappings, manual synchronization and retries. Viewers read logs and reports.
 Only administrators issue enrollment codes/revoke agents or execute live historical
 imports. Communication keys have field permission level 1; grant this level only to

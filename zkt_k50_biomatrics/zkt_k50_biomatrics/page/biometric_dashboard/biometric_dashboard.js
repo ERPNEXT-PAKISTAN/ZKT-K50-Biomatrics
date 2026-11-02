@@ -9,15 +9,25 @@ frappe.pages['biometric-dashboard'].on_page_load = function(wrapper) {
             const card = $('<div class="col-md-3 mb-4"><div class="frappe-card p-4"><div class="text-muted"></div><h2></h2></div></div>').appendTo(cards);
             card.find('.text-muted').text(__(label)); card.find('h2').text(value);
         });
+        const setup = $('<div class="frappe-card p-4 mb-4"></div>').appendTo(area);
+        $('<h4></h4>').text(__('Connect your K50')).appendTo(setup);
+        $('<p></p>').text(__('Add a device, enter its network settings, save, then choose Device → Test Connection. Use Direct mode when this server can reach the device LAN; use an Edge Agent for a cloud server. Keep live sync off until mappings and preview are checked.')).appendTo(setup);
+        $('<a class="btn btn-primary"></a>').attr('href', '/desk/biometric-device').text(__('Open Devices')).appendTo(setup);
         const actions = $('<div class="d-flex flex-wrap" style="gap:12px"></div>').appendTo(area);
         ['Biometric Device','Biometric Agent','Biometric Employee Mapping','Biometric Raw Log','Biometric Sync Run'].forEach(dt => {
-            $('<button class="btn btn-default"></button>').text(__(dt)).on('click', () => frappe.set_route('List', dt)).appendTo(actions);
+            $('<a class="btn btn-default"></a>').attr('href', '/desk/' + frappe.router.slug(dt)).text(__(dt)).appendTo(actions);
         });
         const reports = $('<div class="mt-4"></div>').appendTo(area);
         $('<h4></h4>').text(__('Reports')).appendTo(reports);
         ['Device Health Report','Synchronization Run Report','Attendance Integration Error Report','Unmapped Biometric Users Report','Raw Attendance Event Report','Duplicate Events Report','Daily Device Event Summary','Agent Status Report'].forEach(name => {
-            $('<button class="btn btn-link"></button>').text(__(name)).on('click', () => frappe.set_route('query-report',name)).appendTo(reports);
+            $('<a class="btn btn-link"></a>').attr('href', '/desk/query-report/' + encodeURIComponent(name)).text(__(name)).appendTo(reports);
         });
     }});
-    page.set_primary_action(__('Refresh'), load); load();
+    if (['System Manager', 'Biometric Administrator', 'Biometric Manager'].some(role => frappe.user.has_role(role))) {
+        page.set_primary_action(__('Add Device'), () => frappe.new_doc('Biometric Device'), 'add');
+        page.set_secondary_action(__('Refresh'), load);
+    } else {
+        page.set_primary_action(__('Refresh'), load);
+    }
+    load();
 };

@@ -474,3 +474,21 @@ class TestIntegration(IntegrationTestCase):
             self.assertEqual(run.status, "Success")
             self.assertEqual(run.events_received, 1)
             self.assertEqual(run.created_count, 1)
+
+    def test_system_manager_can_configure_devices(self):
+        user = frappe.get_doc(
+            {
+                "doctype": "User",
+                "email": "zkt-permissions-" + self.suffix + "@example.invalid",
+                "first_name": "ZKT Permission Test",
+                "send_welcome_email": 0,
+                "user_type": "System User",
+                "roles": [{"role": "System Manager"}],
+            }
+        ).insert()
+        for doctype in ["Biometric Device", "Biometric Agent", "Biometric Employee Mapping"]:
+            self.assertTrue(frappe.has_permission(doctype, "read", user=user.name), doctype)
+            self.assertTrue(frappe.has_permission(doctype, "create", user=user.name), doctype)
+        for doctype in ["Biometric Raw Log", "Biometric Sync Run"]:
+            self.assertTrue(frappe.has_permission(doctype, "read", user=user.name), doctype)
+            self.assertFalse(frappe.has_permission(doctype, "write", user=user.name), doctype)
