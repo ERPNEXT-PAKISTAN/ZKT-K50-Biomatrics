@@ -1,0 +1,23 @@
+{
+  "doctype": "Report",
+  "name": "Attendance Integration Error Report",
+  "report_name": "Attendance Integration Error Report",
+  "ref_doctype": "Biometric Raw Log",
+  "report_type": "Script Report",
+  "is_standard": "Yes",
+  "module": "ZKT K50 Biomatrics",
+  "roles": [
+    {
+      "role": "Biometric Administrator"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Viewer"
+    },
+    {
+      "role": "System Manager"
+    }
+  ]
+}

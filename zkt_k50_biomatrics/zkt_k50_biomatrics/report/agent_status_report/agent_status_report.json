@@ -1,0 +1,23 @@
+{
+  "doctype": "Report",
+  "name": "Agent Status Report",
+  "report_name": "Agent Status Report",
+  "ref_doctype": "Biometric Agent",
+  "report_type": "Script Report",
+  "is_standard": "Yes",
+  "module": "ZKT K50 Biomatrics",
+  "roles": [
+    {
+      "role": "Biometric Administrator"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Viewer"
+    },
+    {
+      "role": "System Manager"
+    }
+  ]
+}

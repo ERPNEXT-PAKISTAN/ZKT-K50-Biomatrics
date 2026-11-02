@@ -1,0 +1,25 @@
+[Unit]
+Description=ZKT K50 Biomatrics Edge Agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=zkt-k50-agent
+Group=zkt-k50-agent
+StateDirectory=zkt-k50-agent
+StateDirectoryMode=0700
+WorkingDirectory=/var/lib/zkt-k50-agent
+ExecStart=/opt/zkt-k50-agent/venv/bin/zkt-k50-agent --config /etc/zkt-k50-agent/config.json run
+Restart=on-failure
+RestartSec=15
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/zkt-k50-agent
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

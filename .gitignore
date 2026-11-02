@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.sqlite*
+.env
+.venv/
+.coverage
+.ruff_cache/

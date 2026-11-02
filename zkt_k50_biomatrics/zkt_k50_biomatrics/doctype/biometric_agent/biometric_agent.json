@@ -1,0 +1,158 @@
+{
+  "doctype": "DocType",
+  "name": "Biometric Agent",
+  "module": "ZKT K50 Biomatrics",
+  "custom": 0,
+  "istable": 0,
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "field_order": [
+    "agent_name",
+    "agent_code",
+    "enabled",
+    "revoked",
+    "token_hash",
+    "enrollment_hash",
+    "enrollment_expires",
+    "credential_rotated_at",
+    "last_heartbeat",
+    "last_contact",
+    "agent_version",
+    "hostname",
+    "last_error"
+  ],
+  "fields": [
+    {
+      "fieldname": "agent_name",
+      "fieldtype": "Data",
+      "label": "Agent Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "agent_code",
+      "fieldtype": "Data",
+      "label": "Agent Code",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": "0"
+    },
+    {
+      "fieldname": "revoked",
+      "fieldtype": "Check",
+      "label": "Revoked",
+      "default": "0"
+    },
+    {
+      "fieldname": "token_hash",
+      "fieldtype": "Data",
+      "label": "Token Hash",
+      "permlevel": 1,
+      "hidden": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "enrollment_hash",
+      "fieldtype": "Data",
+      "label": "Enrollment Hash",
+      "permlevel": 1,
+      "hidden": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "enrollment_expires",
+      "fieldtype": "Datetime",
+      "label": "Enrollment Expires",
+      "read_only": 1
+    },
+    {
+      "fieldname": "credential_rotated_at",
+      "fieldtype": "Datetime",
+      "label": "Credential Rotated At",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_heartbeat",
+      "fieldtype": "Datetime",
+      "label": "Last Heartbeat",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_contact",
+      "fieldtype": "Datetime",
+      "label": "Last Contact",
+      "read_only": 1
+    },
+    {
+      "fieldname": "agent_version",
+      "fieldtype": "Data",
+      "label": "Agent Version",
+      "read_only": 1
+    },
+    {
+      "fieldname": "hostname",
+      "fieldtype": "Data",
+      "label": "Hostname",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_error",
+      "fieldtype": "Small Text",
+      "label": "Last Error",
+      "read_only": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Viewer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "permlevel": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "field:agent_code",
+  "allow_rename": 0
+}

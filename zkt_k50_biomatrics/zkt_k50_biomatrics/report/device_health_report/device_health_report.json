@@ -1,0 +1,23 @@
+{
+  "doctype": "Report",
+  "name": "Device Health Report",
+  "report_name": "Device Health Report",
+  "ref_doctype": "Biometric Device",
+  "report_type": "Script Report",
+  "is_standard": "Yes",
+  "module": "ZKT K50 Biomatrics",
+  "roles": [
+    {
+      "role": "Biometric Administrator"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Viewer"
+    },
+    {
+      "role": "System Manager"
+    }
+  ]
+}

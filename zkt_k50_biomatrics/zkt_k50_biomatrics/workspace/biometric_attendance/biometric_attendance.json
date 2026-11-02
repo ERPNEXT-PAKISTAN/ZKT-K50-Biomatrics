@@ -1,0 +1,66 @@
+{
+  "doctype": "Workspace",
+  "name": "Biometric Attendance",
+  "label": "Biometric Attendance",
+  "title": "Biometric Attendance",
+  "module": "ZKT K50 Biomatrics",
+  "app": "zkt_k50_biomatrics",
+  "type": "Workspace",
+  "public": 1,
+  "is_hidden": 0,
+  "icon": "organization",
+  "sequence_id": 35,
+  "content": "[{\"id\": \"title\", \"type\": \"header\", \"data\": {\"text\": \"ZKT K50 Biomatrics\", \"col\": 12}}, {\"id\": \"overview\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Dashboard\", \"col\": 4}}, {\"id\": \"shortcut0\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Biometric Device\", \"col\": 4}}, {\"id\": \"shortcut1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Biometric Agent\", \"col\": 4}}, {\"id\": \"shortcut2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Biometric Employee Mapping\", \"col\": 4}}, {\"id\": \"shortcut3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Biometric Raw Log\", \"col\": 4}}, {\"id\": \"shortcut4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Biometric Sync Run\", \"col\": 4}}]",
+  "shortcuts": [
+    {
+      "label": "Dashboard",
+      "type": "Page",
+      "link_to": "biometric-dashboard",
+      "color": "Blue"
+    },
+    {
+      "label": "Biometric Device",
+      "type": "DocType",
+      "link_to": "Biometric Device",
+      "color": "Grey"
+    },
+    {
+      "label": "Biometric Agent",
+      "type": "DocType",
+      "link_to": "Biometric Agent",
+      "color": "Grey"
+    },
+    {
+      "label": "Biometric Employee Mapping",
+      "type": "DocType",
+      "link_to": "Biometric Employee Mapping",
+      "color": "Grey"
+    },
+    {
+      "label": "Biometric Raw Log",
+      "type": "DocType",
+      "link_to": "Biometric Raw Log",
+      "color": "Grey"
+    },
+    {
+      "label": "Biometric Sync Run",
+      "type": "DocType",
+      "link_to": "Biometric Sync Run",
+      "color": "Grey"
+    }
+  ],
+  "roles": [
+    {
+      "role": "Biometric Administrator"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Viewer"
+    },
+    {
+      "role": "System Manager"
+    }
+  ]
+}

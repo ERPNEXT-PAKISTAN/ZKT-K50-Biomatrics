@@ -1,0 +1,22 @@
+{
+  "doctype": "Page",
+  "name": "biometric-dashboard",
+  "page_name": "biometric-dashboard",
+  "title": "ZKT K50 Biomatrics",
+  "module": "ZKT K50 Biomatrics",
+  "standard": "Yes",
+  "roles": [
+    {
+      "role": "Biometric Administrator"
+    },
+    {
+      "role": "Biometric Manager"
+    },
+    {
+      "role": "Biometric Viewer"
+    },
+    {
+      "role": "System Manager"
+    }
+  ]
+}

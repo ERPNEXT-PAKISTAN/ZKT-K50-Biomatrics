@@ -1,0 +1,210 @@
+{
+  "doctype": "DocType",
+  "name": "Biometric Raw Log",
+  "module": "ZKT K50 Biomatrics",
+  "custom": 0,
+  "istable": 0,
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "field_order": [
+    "external_key",
+    "device",
+    "agent",
+    "sync_run",
+    "biometric_user_id",
+    "device_uid",
+    "native_id",
+    "original_timestamp",
+    "normalized_timestamp",
+    "device_timezone",
+    "punch_code",
+    "log_type",
+    "employee",
+    "mapping",
+    "status",
+    "employee_checkin",
+    "first_received",
+    "last_attempt",
+    "retry_count",
+    "processing_error",
+    "raw_payload",
+    "dry_run"
+  ],
+  "fields": [
+    {
+      "fieldname": "external_key",
+      "fieldtype": "Data",
+      "label": "External Key",
+      "unique": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "device",
+      "fieldtype": "Link",
+      "label": "Device",
+      "options": "Biometric Device",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "agent",
+      "fieldtype": "Link",
+      "label": "Agent",
+      "options": "Biometric Agent"
+    },
+    {
+      "fieldname": "sync_run",
+      "fieldtype": "Link",
+      "label": "Sync Run",
+      "options": "Biometric Sync Run"
+    },
+    {
+      "fieldname": "biometric_user_id",
+      "fieldtype": "Data",
+      "label": "Biometric User Id",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "device_uid",
+      "fieldtype": "Data",
+      "label": "Device Uid"
+    },
+    {
+      "fieldname": "native_id",
+      "fieldtype": "Data",
+      "label": "Native Id"
+    },
+    {
+      "fieldname": "original_timestamp",
+      "fieldtype": "Data",
+      "label": "Original Timestamp",
+      "reqd": 1
+    },
+    {
+      "fieldname": "normalized_timestamp",
+      "fieldtype": "Datetime",
+      "label": "Normalized Timestamp",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "device_timezone",
+      "fieldtype": "Data",
+      "label": "Device Timezone"
+    },
+    {
+      "fieldname": "punch_code",
+      "fieldtype": "Data",
+      "label": "Punch Code"
+    },
+    {
+      "fieldname": "log_type",
+      "fieldtype": "Select",
+      "label": "Log Type",
+      "options": "Unknown\nIN\nOUT",
+      "default": "Unknown"
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "mapping",
+      "fieldtype": "Link",
+      "label": "Mapping",
+      "options": "Biometric Employee Mapping"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Received\nPending\nProcessing\nCreated\nDuplicate\nUnmapped\nInvalid\nFailed\nSkipped\nRequires Review",
+      "default": "Received",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "employee_checkin",
+      "fieldtype": "Link",
+      "label": "Employee Checkin",
+      "options": "Employee Checkin"
+    },
+    {
+      "fieldname": "first_received",
+      "fieldtype": "Datetime",
+      "label": "First Received"
+    },
+    {
+      "fieldname": "last_attempt",
+      "fieldtype": "Datetime",
+      "label": "Last Attempt"
+    },
+    {
+      "fieldname": "retry_count",
+      "fieldtype": "Int",
+      "label": "Retry Count"
+    },
+    {
+      "fieldname": "processing_error",
+      "fieldtype": "Small Text",
+      "label": "Processing Error"
+    },
+    {
+      "fieldname": "raw_payload",
+      "fieldtype": "JSON",
+      "label": "Raw Payload"
+    },
+    {
+      "fieldname": "dry_run",
+      "fieldtype": "Check",
+      "label": "Dry Run"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Manager",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Viewer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "permlevel": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "hash",
+  "allow_rename": 0
+}

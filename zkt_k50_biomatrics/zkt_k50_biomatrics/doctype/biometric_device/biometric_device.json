@@ -1,0 +1,396 @@
+{
+  "doctype": "DocType",
+  "name": "Biometric Device",
+  "module": "ZKT K50 Biomatrics",
+  "custom": 0,
+  "istable": 0,
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "field_order": [
+    "identity_section",
+    "device_name",
+    "device_code",
+    "enabled",
+    "live_sync_enabled",
+    "connection_section",
+    "driver",
+    "device_model",
+    "vendor",
+    "connection_mode",
+    "agent",
+    "network_section",
+    "host",
+    "port",
+    "transport",
+    "communication_key",
+    "timeout",
+    "omit_ping",
+    "processing_section",
+    "device_timezone",
+    "polling_interval",
+    "location_section",
+    "company",
+    "branch",
+    "shift_location",
+    "geolocation_policy",
+    "latitude",
+    "longitude",
+    "sync_start",
+    "skip_auto_attendance",
+    "punch_section",
+    "punch_mappings",
+    "monitoring_section",
+    "last_seen",
+    "last_sync",
+    "last_status",
+    "last_error",
+    "diagnostics_section",
+    "device_info",
+    "discovered_users",
+    "last_record_count",
+    "last_poll",
+    "consecutive_errors",
+    "previewed_at",
+    "preview_config_hash"
+  ],
+  "fields": [
+    {
+      "fieldname": "identity_section",
+      "fieldtype": "Section Break",
+      "label": "Device Identity",
+      "collapsible": 0
+    },
+    {
+      "fieldname": "device_name",
+      "fieldtype": "Data",
+      "label": "Device Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "device_code",
+      "fieldtype": "Data",
+      "label": "Device Code",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": "0"
+    },
+    {
+      "fieldname": "live_sync_enabled",
+      "fieldtype": "Check",
+      "label": "Live Sync Enabled",
+      "default": "0",
+      "description": "Enable only after mapping, location setup and preview."
+    },
+    {
+      "fieldname": "connection_section",
+      "fieldtype": "Section Break",
+      "label": "Connection",
+      "collapsible": 0
+    },
+    {
+      "fieldname": "driver",
+      "fieldtype": "Select",
+      "label": "Driver",
+      "options": "pyzk",
+      "default": "pyzk",
+      "reqd": 1
+    },
+    {
+      "fieldname": "device_model",
+      "fieldtype": "Data",
+      "label": "Device Model",
+      "default": "K50"
+    },
+    {
+      "fieldname": "vendor",
+      "fieldtype": "Data",
+      "label": "Vendor",
+      "default": "ZKTeco"
+    },
+    {
+      "fieldname": "connection_mode",
+      "fieldtype": "Select",
+      "label": "Connection Mode",
+      "options": "Direct\nEdge Agent",
+      "default": "Direct",
+      "reqd": 1
+    },
+    {
+      "fieldname": "agent",
+      "fieldtype": "Link",
+      "label": "Agent",
+      "options": "Biometric Agent",
+      "depends_on": "eval:doc.connection_mode==='Edge Agent'"
+    },
+    {
+      "fieldname": "network_section",
+      "fieldtype": "Section Break",
+      "label": "Device Network",
+      "collapsible": 0
+    },
+    {
+      "fieldname": "host",
+      "fieldtype": "Data",
+      "label": "Host",
+      "reqd": 1
+    },
+    {
+      "fieldname": "port",
+      "fieldtype": "Int",
+      "label": "Port",
+      "default": "4370",
+      "reqd": 1
+    },
+    {
+      "fieldname": "transport",
+      "fieldtype": "Select",
+      "label": "Transport",
+      "options": "TCP\nUDP",
+      "default": "TCP"
+    },
+    {
+      "fieldname": "communication_key",
+      "fieldtype": "Password",
+      "label": "Communication Key",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "timeout",
+      "fieldtype": "Int",
+      "label": "Timeout",
+      "default": "15"
+    },
+    {
+      "fieldname": "omit_ping",
+      "fieldtype": "Check",
+      "label": "Omit Ping",
+      "default": "1"
+    },
+    {
+      "fieldname": "processing_section",
+      "fieldtype": "Section Break",
+      "label": "Time and Synchronization",
+      "collapsible": 0
+    },
+    {
+      "fieldname": "device_timezone",
+      "fieldtype": "Data",
+      "label": "Device Timezone",
+      "default": "Asia/Karachi",
+      "reqd": 1
+    },
+    {
+      "fieldname": "polling_interval",
+      "fieldtype": "Int",
+      "label": "Polling Interval",
+      "default": "300"
+    },
+    {
+      "fieldname": "location_section",
+      "fieldtype": "Section Break",
+      "label": "Workplace and Geolocation",
+      "collapsible": 0
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company"
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "shift_location",
+      "fieldtype": "Link",
+      "label": "Shift Location",
+      "options": "Shift Location"
+    },
+    {
+      "fieldname": "geolocation_policy",
+      "fieldtype": "Select",
+      "label": "Geolocation Policy",
+      "options": "Unavailable / Review\nFixed Coordinates",
+      "default": "Unavailable / Review"
+    },
+    {
+      "fieldname": "latitude",
+      "fieldtype": "Float",
+      "label": "Latitude",
+      "precision": "8",
+      "depends_on": "eval:doc.geolocation_policy==='Fixed Coordinates'"
+    },
+    {
+      "fieldname": "longitude",
+      "fieldtype": "Float",
+      "label": "Longitude",
+      "precision": "8",
+      "depends_on": "eval:doc.geolocation_policy==='Fixed Coordinates'"
+    },
+    {
+      "fieldname": "sync_start",
+      "fieldtype": "Datetime",
+      "label": "Sync Start",
+      "reqd": 1
+    },
+    {
+      "fieldname": "skip_auto_attendance",
+      "fieldtype": "Check",
+      "label": "Skip Auto Attendance",
+      "default": "0"
+    },
+    {
+      "fieldname": "punch_section",
+      "fieldtype": "Section Break",
+      "label": "Punch Code Mapping",
+      "collapsible": 0
+    },
+    {
+      "fieldname": "punch_mappings",
+      "fieldtype": "Table",
+      "label": "Punch Mappings",
+      "options": "Biometric Punch Mapping"
+    },
+    {
+      "fieldname": "monitoring_section",
+      "fieldtype": "Section Break",
+      "label": "Monitoring",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "last_seen",
+      "fieldtype": "Datetime",
+      "label": "Last Seen",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_sync",
+      "fieldtype": "Datetime",
+      "label": "Last Sync",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_status",
+      "fieldtype": "Select",
+      "label": "Last Status",
+      "options": "Never Synced\nQueued\nRunning\nSuccess\nPartial\nFailed\nOffline",
+      "default": "Never Synced",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_error",
+      "fieldtype": "Small Text",
+      "label": "Last Error",
+      "read_only": 1
+    },
+    {
+      "fieldname": "diagnostics_section",
+      "fieldtype": "Section Break",
+      "label": "Diagnostics",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "device_info",
+      "fieldtype": "JSON",
+      "label": "Device Info",
+      "read_only": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "discovered_users",
+      "fieldtype": "JSON",
+      "label": "Discovered Users",
+      "read_only": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "last_record_count",
+      "fieldtype": "Int",
+      "label": "Last Record Count",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_poll",
+      "fieldtype": "Datetime",
+      "label": "Last Poll",
+      "read_only": 1
+    },
+    {
+      "fieldname": "consecutive_errors",
+      "fieldtype": "Int",
+      "label": "Consecutive Errors",
+      "read_only": 1
+    },
+    {
+      "fieldname": "previewed_at",
+      "fieldtype": "Datetime",
+      "label": "Previewed At",
+      "read_only": 1
+    },
+    {
+      "fieldname": "preview_config_hash",
+      "fieldtype": "Data",
+      "label": "Preview Config Hash",
+      "read_only": 1,
+      "hidden": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Viewer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "permlevel": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "field:device_code",
+  "allow_rename": 0
+}

@@ -1,0 +1,123 @@
+{
+  "doctype": "DocType",
+  "name": "Biometric Employee Mapping",
+  "module": "ZKT K50 Biomatrics",
+  "custom": 0,
+  "istable": 0,
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "field_order": [
+    "device",
+    "biometric_user_id",
+    "device_user_name",
+    "device_uid",
+    "employee",
+    "enabled",
+    "effective_from",
+    "effective_to",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "device",
+      "fieldtype": "Link",
+      "label": "Device",
+      "options": "Biometric Device",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "biometric_user_id",
+      "fieldtype": "Data",
+      "label": "Biometric User Id",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "device_user_name",
+      "fieldtype": "Data",
+      "label": "Device User Name"
+    },
+    {
+      "fieldname": "device_uid",
+      "fieldtype": "Data",
+      "label": "Device Uid"
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": "1"
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Datetime",
+      "label": "Effective From",
+      "reqd": 1
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Datetime",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Viewer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "permlevel": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "hash",
+  "allow_rename": 0
+}

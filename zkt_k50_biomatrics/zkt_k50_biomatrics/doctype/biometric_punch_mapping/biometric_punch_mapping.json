@@ -1,0 +1,33 @@
+{
+  "doctype": "DocType",
+  "name": "Biometric Punch Mapping",
+  "module": "ZKT K50 Biomatrics",
+  "custom": 0,
+  "istable": 1,
+  "engine": "InnoDB",
+  "track_changes": 0,
+  "field_order": [
+    "punch_code",
+    "log_type"
+  ],
+  "fields": [
+    {
+      "fieldname": "punch_code",
+      "fieldtype": "Data",
+      "label": "Punch Code",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "log_type",
+      "fieldtype": "Select",
+      "label": "Log Type",
+      "options": "IN\nOUT",
+      "reqd": 1,
+      "in_list_view": 1
+    }
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

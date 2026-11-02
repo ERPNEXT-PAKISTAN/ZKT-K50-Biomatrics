@@ -1,0 +1,15 @@
+{
+  "site_url": "https://erp.example.com",
+  "credential_file": "/var/lib/zkt-k50-agent/credential",
+  "outbox": "/var/lib/zkt-k50-agent/outbox.sqlite",
+  "devices": {
+    "WORKPLACE-01": {
+      "host": "terminal.example.internal",
+      "port": 4370,
+      "transport": "TCP",
+      "communication_key": "",
+      "timeout": 15,
+      "omit_ping": true
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# Install the application package on the edge host. It has no Frappe dependency.
+# From the repository root: python -m pip install .
+pyzk>=0.9,<0.10
+requests>=2.31,<3

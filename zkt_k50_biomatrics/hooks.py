@@ -1,0 +1,11 @@
+app_name = "zkt_k50_biomatrics"
+app_title = "ZKT K50 Biomatrics"
+app_publisher = "ZKT K50 Biomatrics contributors"
+app_description = "Manage K50 devices and synchronize attendance with HRMS"
+app_email = "admin@example.com"
+app_license = "mit"
+required_apps = ["erpnext", "hrms"]
+after_install = "zkt_k50_biomatrics.install.setup"
+after_migrate = "zkt_k50_biomatrics.install.setup"
+before_uninstall = "zkt_k50_biomatrics.install.before_uninstall"
+scheduler_events = {"cron": {"* * * * *": ["zkt_k50_biomatrics.jobs.schedule"]}}

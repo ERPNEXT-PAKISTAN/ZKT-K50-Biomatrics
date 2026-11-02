@@ -1,0 +1,211 @@
+{
+  "doctype": "DocType",
+  "name": "Biometric Sync Run",
+  "module": "ZKT K50 Biomatrics",
+  "custom": 0,
+  "istable": 0,
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "field_order": [
+    "device",
+    "agent",
+    "trigger_type",
+    "mode",
+    "range_start",
+    "range_end",
+    "started_at",
+    "ended_at",
+    "status",
+    "records_retrieved",
+    "events_received",
+    "created_count",
+    "duplicate_count",
+    "unmapped_count",
+    "skipped_count",
+    "failed_count",
+    "error_summary",
+    "initiated_by",
+    "duration",
+    "preview",
+    "operation",
+    "lease_expires",
+    "lease_token"
+  ],
+  "fields": [
+    {
+      "fieldname": "device",
+      "fieldtype": "Link",
+      "label": "Device",
+      "options": "Biometric Device",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "agent",
+      "fieldtype": "Link",
+      "label": "Agent",
+      "options": "Biometric Agent"
+    },
+    {
+      "fieldname": "trigger_type",
+      "fieldtype": "Select",
+      "label": "Trigger Type",
+      "options": "Manual\nScheduled\nHistorical Import\nRetry\nEdge Agent"
+    },
+    {
+      "fieldname": "mode",
+      "fieldtype": "Select",
+      "label": "Mode",
+      "options": "Dry Run\nLive",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "range_start",
+      "fieldtype": "Datetime",
+      "label": "Range Start"
+    },
+    {
+      "fieldname": "range_end",
+      "fieldtype": "Datetime",
+      "label": "Range End"
+    },
+    {
+      "fieldname": "started_at",
+      "fieldtype": "Datetime",
+      "label": "Started At"
+    },
+    {
+      "fieldname": "ended_at",
+      "fieldtype": "Datetime",
+      "label": "Ended At"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Queued\nRunning\nSuccess\nPartial\nFailed",
+      "default": "Queued",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "records_retrieved",
+      "fieldtype": "Int",
+      "label": "Records Retrieved"
+    },
+    {
+      "fieldname": "events_received",
+      "fieldtype": "Int",
+      "label": "Events Received"
+    },
+    {
+      "fieldname": "created_count",
+      "fieldtype": "Int",
+      "label": "Created Count"
+    },
+    {
+      "fieldname": "duplicate_count",
+      "fieldtype": "Int",
+      "label": "Duplicate Count"
+    },
+    {
+      "fieldname": "unmapped_count",
+      "fieldtype": "Int",
+      "label": "Unmapped Count"
+    },
+    {
+      "fieldname": "skipped_count",
+      "fieldtype": "Int",
+      "label": "Skipped Count"
+    },
+    {
+      "fieldname": "failed_count",
+      "fieldtype": "Int",
+      "label": "Failed Count"
+    },
+    {
+      "fieldname": "error_summary",
+      "fieldtype": "Small Text",
+      "label": "Error Summary"
+    },
+    {
+      "fieldname": "initiated_by",
+      "fieldtype": "Link",
+      "label": "Initiated By",
+      "options": "User"
+    },
+    {
+      "fieldname": "duration",
+      "fieldtype": "Float",
+      "label": "Duration"
+    },
+    {
+      "fieldname": "preview",
+      "fieldtype": "JSON",
+      "label": "Preview"
+    },
+    {
+      "fieldname": "operation",
+      "label": "Operation",
+      "fieldtype": "Select",
+      "options": "Sync\nTest Connection\nDevice Info\nFetch Users",
+      "default": "Sync"
+    },
+    {
+      "fieldname": "lease_expires",
+      "label": "Lease Expires",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "lease_token",
+      "label": "Lease Token",
+      "fieldtype": "Data",
+      "hidden": 1,
+      "permlevel": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Manager",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Viewer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "export": 1,
+      "report": 1,
+      "print": 1,
+      "share": 0,
+      "delete": 0
+    },
+    {
+      "role": "Biometric Administrator",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "permlevel": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "hash",
+  "allow_rename": 0
+}
